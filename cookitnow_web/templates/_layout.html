@@ -14,20 +14,28 @@
       <script type="text/javascript" src="{{ ASSET_URL }}"></script>
     {% endassets %}
 
+    <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
     {% block header %}
     {% endblock %}
 
     <title>
       {% block title %}
-      {% endblock %}NEXTAGRAM
+      {% endblock %} CookItNow
     </title>
 
   </head>
   <body>
+    {% include "navigation.html" %}
+
+    
     {% block content %}
     {% endblock %}
-    <footer>
-      Made with &hearts; at <a target="_blank" href="https://www.nextacademy.com/?utm_source=github&utm_medium=student-challenge&utm_campaign=flask-nextagram">NEXT Academy</a>
-    </footer>
+    
+
+
+
+    <script type="text/javascript" language="javascript" src="/static/js/recipe_details.js"></script>
   </body>
 </html>

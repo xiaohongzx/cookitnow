@@ -1,12 +1,22 @@
 {% extends "_layout.html" %}
-
-{% block title %}
-  Homepage
-{% endblock %}
-
-{% block header %}
-{% endblock %}
-
 {% block content %}
-  <h1>Homepage</h1>
+<div class="homepage">
+  <div>
+    <h1>Finding Some New Recipe To Cook?</h1>
+    <h2>Lets see what you have in your house</h2>
+
+    <div class="search-recipe">
+      <form method="POST" autocomplete="off" action="{{url_for('recipe_api.recipe')}}">
+        <div class='input-group'>
+            <input id="autocomplete" class='input-field' type='text' name='ingredient_name' placeholder='Search Ingredient : Apple, Onion, Butter, etc.....'/>
+            <span class="input-group-btn">
+              <button id="searchBtn" type='submit' class='btn btn-default'>
+                <i class="fas fa-search"></i>
+              </button>
+            </span>
+        </div>
+      </form>
+    </div>
+  </div>  
+</div>
 {% endblock %}

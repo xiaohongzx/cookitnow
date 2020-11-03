@@ -1,0 +1,28 @@
+
+<!-- if this is home page load this -->
+{% if request.endpoint == 'home'  %}
+<div class="nav-bar nav-home">
+    <div class="logo"><a href="/"><img src="/static/images/cookitnow-logo-white.png"></a></div>
+    <div class="nav-list">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#" class="signup">SignUp</a></li>
+        </ul>
+    </div>
+</div>
+
+{% else %}
+<!-- not home page load this -->
+<div class="nav-bar">
+    <div class="logo"><a href="/"><img src="/static/images/cookitnow-logo.png"></a></div>
+    <div class="nav-list">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#" class="signup">SignUp</a></li>
+        </ul>
+    </div>
+</div>
+
+{% endif %}

@@ -1,0 +1,116 @@
+{% extends "_layout.html" %}
+
+
+{% block content %}
+{% include "search_header.html" %}
+<div class="recipe_full_details">
+
+    <div class="recipe_full_details_left">
+        
+        <div id="recipeTitle">
+            {{ recipe_id['title'] }} <button id="downloadBtn" class='btn btn-link' onclick="getPdf()"></button>
+        </div>
+
+        <div class="recipe_food_images">
+            <img id="recipeImage" src=" {{ recipe_id['image'] }}">
+        </div>
+
+        <div class="recipe_ingredient_list">
+            <div class="subtitle">Ingredients</div>
+            <ul>
+                {% for entry in recipe_id['extendedIngredients'] %}
+                <li>{{entry['originalString']}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="recipe_step_to_cook">
+            <div class="subtitle">Steps to Follow</div>
+
+            {% for step in recipe_id['analyzedInstructions'] %}
+            <div class="step_name">{{ step['name']}}</div>
+            <div class="step_details">
+                <ul>
+                {% for s in step['steps'] %}
+                    <li>
+                        <div class="step_count"><p>{{ s['number']}}</p></div>
+                        <div class="step_desc">{{ s['step']}}<br></div>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+    <div class="recipe_full_details_right">
+
+        <div class="recipe_about">
+            <div class="subtitle">About This Recipe</div>
+            <div id="recipeInstructions">{{ recipe_id['instructions'] }}</div>
+            <div class="recipe_original_from">Read the detail recipe on <a href="{{ recipe_id['sourceUrl'] }}">{{ recipe_id['sourceUrl'] }}</a></div>
+        </div>
+
+        <div class="recipe_equipment">
+            <div class="subtitle">Equipment Needed</div>
+            <div class="recipe_equipment_list">
+                <ul>
+                    {% for step in recipe_id['analyzedInstructions'] %}
+                        {% for s in step['steps'] %}
+                            {% for e in s['equipment'] %}
+                                <li>
+                                <p>{{ e['name']}}</p>
+                                <img id="recipeImage" src="https://spoonacular.com/cdn/equipment_100x100/{{ e['image']}}">
+                                </li>
+                            {% endfor %}
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="recipe_all_ingredients">
+            <div class="subtitle">Ingredients</div>
+            <!-- {% for e in recipe_id['extendedIngredients'] %}
+            <div>
+                Ingredient For : {{e['aisle']}}<br>
+                Ingredient Image :  <img src="https://spoonacular.com/cdn/ingredients_100x100/{{e['image']}}"><br>
+                Ingredient name : {{e['name']}}<br>
+                Unit : {{e['amount']}} {{e['unit']}}<br>
+            </div>
+            {% endfor %} -->
+            <div class="recipe_ingredients_list">
+                <ul>
+                    {% for e in recipe_id['extendedIngredients'] %}
+                    <li>
+                        <p>{{e['name']}}</p>
+                        <img src="https://spoonacular.com/cdn/ingredients_100x100/{{e['image']}}">
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="recipe_summary">
+        <div class="subtitle">Summary of this Recipe</div>
+        <div class="summary_desc">
+            {{ recipe_id['summary'] }}
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

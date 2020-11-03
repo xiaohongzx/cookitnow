@@ -1,8 +1,154 @@
+@charset "utf-8";
+/* css reset */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+/* remember to define visible focus styles! 
+:focus {
+	outline: ?????;
+} */
+
+/* remember to highlight inserts somehow! */
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* button effect reset for mac IOS version */
+input[type="button"]{
+	appearance:none;
+	-o-appearance:none;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	-ms-appearance:none;
+}
+
+input[type="submit"]{
+	appearance:none;
+	-o-appearance:none;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	-ms-appearance:none;
+	
+	
+}
+
+button{
+	appearance:none;
+	-o-appearance:none;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	-ms-appearance:none;	
+}
+
+a{
+	text-decoration:none;	
+	cursor:pointer;
+	
+	transition:all ease 0.3s;
+	-moz-transition:all ease 0.3s;
+	-ms-transition:all ease 0.3s;
+	-o-transition:all ease 0.3s;
+	-webkit-transition:all ease 0.3s;
+}
+
+a:hover{
+	transition:all ease 0.3s;
+	-moz-transition:all ease 0.3s;
+	-ms-transition:all ease 0.3s;
+	-o-transition:all ease 0.3s;
+	-webkit-transition:all ease 0.3s;
+}
+
+div,select,input,textarea,span,b,i,a,button,td,th,tr,span,b,ul,li,label{
+	box-sizing:border-box;	
+	-moz-box-sizing:border-box;	
+	-ms-box-sizing:border-box;	
+	-o-box-sizing:border-box;	
+	-webkit-box-sizing:border-box;	
+}
+
+.clear{
+	display:block;
+	clear:both;
+	width:100%;	
+}
+
+select{
+	appearance:none;	
+	-moz-appearance:none;	
+	-ms-appearance:none;	
+	-o-appearance:none;	
+	-webkit-appearance:none;	
+	cursor:pointer;
+}
+
+p{
+	line-height:1.6;	
+}
+
+strong{
+	font-weight:bold;	
+}
+
+body{
+	overflow-x:hidden;	
+}
+/* css reset */
+
+
+
 body {
   margin: 0;
-  padding-bottom: 15px;
+  padding:0;
   position: relative;
   min-height: 100vh;
+  font-family:Arial, Helvetica, sans-serif
 }
 
 footer {
@@ -19,3 +165,436 @@ footer a {
   text-decoration: none;
   color: #303030;
 }
+
+/*hong css*/
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+
+
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.autocomplete-items div:hover {
+    background-color: #e9e9e9;
+}
+
+.autocomplete-active {
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+}
+
+.nav-bar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 20px;
+  width:100%;
+  background:#ffffff
+}
+
+.nav-bar.nav-home{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 20px;
+  width:100%;
+  background:rgba(0,0,0,.5);
+  position:fixed;
+  top:0;
+  left:0;
+}
+
+.nav-bar .logo{
+  width:200px;
+}
+
+.nav-bar .logo a{
+  display:block;
+}
+
+.nav-bar .logo a img{
+  display:block;
+  width:100%;
+}
+
+.nav-bar .nav-list ul li{
+  display:inline-block;
+  margin:0px 20px;
+}
+
+.nav-bar .nav-list ul li a{
+  display:block;
+  color:#000000;
+  font-size:16px;
+  text-transform:uppercase;
+}
+
+.nav-bar.nav-home .nav-list ul li a{
+  display:block;
+  color:#ffffff;
+  font-size:16px;
+  text-transform:uppercase;
+}
+
+.nav-bar .nav-list ul li a.signup{
+  display:block;
+  border-radius:50px;
+  padding:10px 20px;
+  background:#f47c48;
+  color:#ffffff;
+  text-align:center;
+}
+
+.content{
+  padding:20px 20px;
+}
+
+.homepage{
+  min-height:100vh;
+  background:url(../images/homepage-background.jpg);
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position:center center;
+  display:flex;
+  align-items:center;
+  justify-content: center;;
+  text-align:center;
+}
+
+
+.homepage h1{
+  font-size:50px;
+  padding-bottom:20px;
+  color:#ffffff;
+  font-weight:700;
+  text-shadow: 3px 3px rgba(0,0,0,.7);
+}
+
+.homepage h2{
+  font-size:25px;
+  padding-bottom:30px;
+  color:#ffffff;
+  text-shadow:1px 1px rgba(0,0,0,.7);
+}
+
+.search-recipe{
+  display:block;
+}
+
+.input-group{
+  display:block;
+  width:100%;
+  position:relative;
+}
+
+.input-group .input-field {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+  width:100%;
+}
+
+.search-recipe{
+  display:block;
+  max-width:700px;
+  margin:0 auto;
+  width:100%;
+}
+
+.search-recipe #autocomplete{
+  width:100%;
+  height:40px;
+  text-align:center;
+  padding:10px 40px;
+}
+
+.search-recipe .input-group-btn{
+  position: absolute;
+  right:0;
+  top:0;
+  height:40px;
+  background:none;
+  color:#000000;
+  display:flex;
+  justify-content:center;
+}
+
+.allpage-search{
+  background:url(../images/homepage-background.jpg);
+  height:200px;
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position:center center;
+  display:flex;
+  align-items:center;
+  justify-content: center;;
+  text-align:center;
+}
+
+.search-result{
+  padding:30px 20px;
+}
+
+.search-result h1{
+  font-size:30px;
+  font-weight:700;
+  display:block;
+  padding-bottom:10px;
+  color:#f47c48;
+  border-bottom:1px solid #989898;
+  margin-bottom:20px;
+}
+
+.search-result-list{
+  width:100%;
+}
+
+.search-result-list ul{
+  display:flex; 
+  flex-wrap:wrap;
+}
+
+.search-result-list ul li{
+  width:25%;
+  padding:10px 10px;
+  overflow:hidden;
+}
+
+.search-result-list ul li > div{
+  position:relative;
+  overflow:hidden;
+}
+
+.search-result-list ul li .images{
+  padding:10px 10px;
+  border:1px solid #d7d7d7;
+  display:block;
+  position:relative;
+}
+
+.search-result-list ul li .images .recipe_likes_amount{
+  position: absolute;;
+  right:10px;
+  bottom:10px;
+  display:block;
+  padding:10px 10px;
+  color:#ffffff;
+  background:rgba(0,0,0,.5)
+}
+
+.search-result-list ul li img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit: cover;
+}
+
+.search-result-list ul li .recipe_title{
+  display:block;
+  padding:10px 10px;
+  color:#f47c48;
+  line-height:1.5;
+  text-decoration:underline;
+}
+
+.search-result-list ul li .missing_ingredient{
+  text-align:right;
+  padding-bottom:5px;
+  font-size:12px;
+  color:#989898;
+}
+
+.recipe_full_details{
+  display:flex;
+  width:100%;
+  padding:30px 20px;
+  max-width:1100px;
+  margin:0 auto;
+  flex-wrap:wrap;
+}
+
+.recipe_full_details .subtitle{
+  font-size:20px;
+  color:#f47c48;
+  font-weight:700;
+  display:block;
+  line-height:1.5;
+  margin-bottom:10px;
+}
+
+.recipe_full_details_left,
+.recipe_full_details_right{
+  width:50%;
+}
+
+.recipe_full_details_right{
+  padding-left:20px;
+}
+
+.recipe_full_details_left #recipeTitle{
+  font-size:30px;
+  color:#f47c48;
+  font-weight:700;
+  display:block;
+  padding-bottom:30px;
+  line-height:1.2;
+  padding-right:50px;
+}
+
+.recipe_full_details_left .recipe_food_images{
+  display:block;
+  width:100%;
+  max-width:500px;
+  margin-bottom:30px;
+}
+
+.recipe_full_details_left .recipe_food_images img{
+  display:block;
+  width:100%;
+  object-fit: contain;
+}
+
+.recipe_full_details_left .recipe_ingredient_list{
+  margin-bottom:30px;
+}
+
+.recipe_full_details_left .recipe_ingredient_list ul{
+  width:100%;
+}
+
+.recipe_full_details_left .recipe_ingredient_list ul li{
+  margin:10px 20px;
+  line-height:1.5;
+  list-style-type: disc;
+}
+
+.recipe_full_details_left .recipe_step_to_cook{
+  margin-bottom:30px;
+}
+
+.recipe_full_details_left .recipe_step_to_cook .step_name{
+  font-weight:700;
+  font-size:15px;
+  padding-bottom:5px;
+}
+
+.recipe_full_details_left .recipe_step_to_cook .step_details{
+  width:100%;
+}
+
+.recipe_full_details_left .recipe_step_to_cook .step_details ul{
+  margin-bottom:20px;
+}
+
+.recipe_full_details_left .recipe_step_to_cook .step_details ul li{
+  display:flex;
+  justify-content: flex-start;
+  justify-content: space-between;
+}
+
+.recipe_full_details_left .recipe_step_to_cook .step_details ul li .step_count{
+  width:50px;
+  font-size:20px;
+  color:#f47c48;
+  padding:10px 10px;
+}
+
+.recipe_full_details_left .recipe_step_to_cook .step_details ul li .step_count p{
+  width:30px;
+  height:30px;
+  display:block;
+  border-radius:100%;
+  border:1px solid #f47c48;
+  text-align:center;
+}
+
+.recipe_full_details_left .recipe_step_to_cook .step_details ul li .step_desc{
+  line-height:1.3;
+  width:calc(100% - 50px);
+  padding:15px 10px 10px;
+}
+
+.recipe_full_details_right .recipe_about{
+  margin-bottom:30px;
+}
+
+.recipe_full_details_right .recipe_about #recipeInstructions{
+  line-height:1.5;
+}
+
+.recipe_full_details_right .recipe_about .recipe_original_from{
+  display:block;
+  font-size:14px;
+  color:#989898;
+  line-height:15px;
+  padding-top:10px;
+}
+
+.recipe_full_details_right .recipe_equipment{
+  margin-bottom:30px;
+}
+
+.recipe_full_details_right .recipe_equipment .recipe_equipment_list ul,
+.recipe_full_details_right .recipe_all_ingredients .recipe_ingredients_list ul{
+  display:flex;
+  flex-wrap:wrap;
+}
+
+.recipe_full_details_right .recipe_equipment .recipe_equipment_list ul li,
+.recipe_full_details_right .recipe_all_ingredients .recipe_ingredients_list ul li{
+  margin-right: 30px;
+  margin-bottom:30px;
+  width:100px;
+}
+
+.recipe_full_details_right .recipe_equipment .recipe_equipment_list ul li p,
+.recipe_full_details_right .recipe_all_ingredients .recipe_ingredients_list ul li p{
+  text-transform:capitalize;
+  font-size:14px;
+  text-align:center;
+  margin-bottom:10px;
+}
+
+.recipe_full_details_right .recipe_all_ingredients{
+  margin-bottom:30px;
+}
+
+
+.recipe_full_details_right .recipe_all_ingredients .recipe_ingredients_list ul li img{
+  display:block;
+  margin:0 auto;
+}
+
+.recipe_summary{
+  width:100%;
+
+}
+
+.recipe_summary .summary_desc{
+  line-height:1.5;
+}
+
+.recipe_summary .summary_desc b{
+  font-weight:bold;
+  font-style: italic;
+}
+/*hong css*/

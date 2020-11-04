@@ -1,15 +1,13 @@
-# Flask Nextagram Template
+# Cookitnow Template
 
 version 0.0.1 (alpha)
 
 ## Development
 
-**Make a fork before cloning**
-
 **Install dependencies**
 
-- Python 3.7.2 was tested
-- Postgresql 10.3 was tested
+conda create -n (environment_name) python=3.7
+conda activate (environment_name)
 
 1. Delete `peewee-db-evolve==3.7.0` from `requirements.txt` during the first installation.
    Because of how `peewee-db-evolve` created it's build process, we would first need to delete it.
@@ -42,8 +40,9 @@ Minimum environment variables that needs to be set
 ```
 FLASK_APP='start' # based on the name of our entry point script
 FLASK_ENV='development' # use this in development, otherwise 'production' or 'test'
-DATABASE_URL="postgres://localhost:5432/nextagram_dev"
+DATABASE_URL="postgres://localhost:5432/cookitnow_dev"
 SECRET_KEY= #generate your own key
+SPOON_API=c26aa28f9e034c58a9b85e02feaa56d7
 ```
 
 Use `os.urandom(32)` to generate a random secret key and paste that in `.env`. It's important to keep this `SECRET_KEY` private.
@@ -62,7 +61,7 @@ _(see `database.py`)_
 - this application is configured to use Postgresql
 
 ```
-createdb nextagram_dev
+createdb cookitnow_dev
 ```
 
 _\*if you name your database something else, tweak the settings in `.env`_

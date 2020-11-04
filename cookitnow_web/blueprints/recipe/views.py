@@ -4,11 +4,11 @@ from app import app
 import json
 
 
-recipe_api_blueprint = Blueprint('recipe_api',
+recipe_blueprint = Blueprint('recipe',
                             __name__,
                             template_folder='templates')
 
-@recipe_api_blueprint.route('/', methods=['GET', 'POST'])
+@recipe_blueprint.route('/', methods=['GET', 'POST'])
 def recipe():
     if request.method == 'POST':
         content = requests.get(
@@ -22,7 +22,7 @@ def recipe():
         return render_template("recipe/recipe_search.html") 
 
 
-@recipe_api_blueprint.route('/<recipe_id>', methods=['GET'])
+@recipe_blueprint.route('/<recipe_id>', methods=['GET'])
 def recipe_details(recipe_id):
     response = requests.get("https://api.spoonacular.com/recipes/"+recipe_id+"/information?includeNutrition=true&apiKey="+app.config.get("SPOON_API"))
     return make_response(render_template("recipe/recipe_details.html", recipe_id=json.loads(response.text)), 200)

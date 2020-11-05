@@ -15,6 +15,11 @@
             <img id="recipeImage" src=" {{ recipe_id['image'] }}">
         </div>
 
+        <div class="recipe_estimate_time">
+            <div class="subtitle">Ready in</div>
+            <p>Estimate <b>{{ recipe_id['readyInMinutes'] }}</b> min to cook</p>
+        </div>
+
         <div class="recipe_ingredient_list">
             <div class="subtitle">Ingredients</div>
             <ul>
@@ -48,7 +53,7 @@
 
         <div class="recipe_about">
             <div class="subtitle">About This Recipe</div>
-            <div id="recipeInstructions">{{ recipe_id['instructions'] }}</div>
+            <div id="recipeInstructions" class="recipeInstructions">{{ recipe_id['instructions'] | safe }}</div>
             <div class="recipe_original_from">Read the detail recipe on <a href="{{ recipe_id['sourceUrl'] }}">{{ recipe_id['sourceUrl'] }}</a></div>
         </div>
 
@@ -97,7 +102,27 @@
     <div class="recipe_summary">
         <div class="subtitle">Summary of this Recipe</div>
         <div class="summary_desc">
-            {{ recipe_id['summary'] }}
+            {{ recipe_id['summary'] | safe }}
+        </div>
+    </div>
+
+    <div class="similar_recipe">
+        <div class="subtitle">Similar Recipe</div>
+        <div class="similar_recipe">
+            <div class="search-result-list">
+                <ul>
+                    {% for s in recipe_similar %}
+                    <li>
+                    <div>
+                        <a id="{{s['id']}}"  onclick="recipeDetails({{s['id']}})" class="images">
+                        <img id="recipeImage" src="https://spoonacular.com/recipeImages/{{s['id']}}-556x370.{{s['imageType']}}">
+                        </a>
+                        <div class="recipe_title"><a id="{{s['id']}}"  onclick="recipeDetails({{s['id']}})">{{ s['title'] }}</a></div>
+                    </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
 

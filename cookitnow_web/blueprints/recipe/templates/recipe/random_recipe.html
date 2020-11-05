@@ -1,0 +1,41 @@
+{% extends "_layout.html" %}
+
+
+{% block content %}
+{% include "search_header.html" %}
+<div class="recipe-list">
+
+  <div class="search-result">
+    {% if response!=undefined and response|length > 0%}
+    <h1>Random 30 Recipe From CookItNow</h1>
+    {% else %}
+      {% if response!="No recipes found"%}
+      <p>No recipes found</p>
+      {% else %}
+      {% endif %}
+    {% endif %}
+
+    
+    <div class="search-result-list">
+      <ul>
+        {% for search_result in response['recipes'] %}
+            <li>
+              <div>
+                <a id="{{search_result['id']}}"  onclick="recipeDetails({{search_result['id']}})" class="images">
+                  <img id="recipeImage" src="{{search_result['image']}}">
+                  <div class="recipe_likes_amount"><i class="far fa-thumbs-up"></i> {{ search_result['aggregateLikes'] }}</div>
+                  <!-- <p>missed ingredient count : {{ search_result['missedIngredientCount'] }}</p>
+                  <p>Favourited by others : {{ search_result['likes'] }}</p> -->
+                </a>
+    
+                <div class="recipe_title"><a id="{{search_result['id']}}"  onclick="recipeDetails({{search_result['id']}})">{{ search_result['title'] }}</a></div>
+              </div>
+            </li>
+        {% endfor %}
+      </ul>
+    </div>
+        
+  </div>
+
+</div>
+{% endblock %}

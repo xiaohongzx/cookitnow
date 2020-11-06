@@ -1,0 +1,14 @@
+<div class="allpage-search">
+    <div class="search-recipe">
+        <form method="POST" autocomplete="off" action="{{url_for('recipe.cooking_video')}}">
+        <div class='input-group'>
+            <input id="autocomplete" class='input-field' type='text' name='ingredient_name_video' placeholder='Search Ingredient : Chicken, Pasta, Rice'/>
+            <span class="input-group-btn">
+            <button id="searchBtn" type='submit' class='btn btn-default'> 
+                <i class="fas fa-search"></i>
+            </button>
+            </span>
+        </div>
+        </form>
+    </div>
+</div>

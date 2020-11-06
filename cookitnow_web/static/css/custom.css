@@ -362,6 +362,7 @@ footer a {
   color:#f47c48;
   border-bottom:1px solid #989898;
   margin-bottom:20px;
+  text-align:center;
 }
 
 .search-result-list{
@@ -619,5 +620,26 @@ footer a {
 .recipe_estimate_time p b {
   font-weight:700;
   color:#f47c48;
+}
+
+.recipe_serving{
+  margin-bottom:30px;
+}
+
+.search-result-list ul.video_result{
+  width:100%;
+  max-width:1300px;
+  margin:0 auto;
+}
+
+.search-result-list ul.video_result li{
+  width:50%;
+}
+
+.search-result-list ul.video_result li .video-views{
+  text-align:right;
+  padding-bottom:5px;
+  font-size:14px;
+  color:#989898;
 }
 /*hong css*/

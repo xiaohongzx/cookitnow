@@ -1,0 +1,36 @@
+{% extends "_layout.html" %}
+
+
+{% block content %}
+{% include "search_header_video.html" %}
+<div class="recipe-list">
+
+  <div class="search-result">
+    {% if response!=undefined and response|length > 0%}
+    <h1>Video Found</h1>
+    {% else %}
+      {% if response!="No recipes found"%}
+      <p>No recipes found</p>
+      {% else %}
+      {% endif %}
+    {% endif %}
+
+    
+    <div class="search-result-list">
+      <ul class="video_result">
+        {% for search_result in response['videos'] %}
+            <li>
+                <div>
+                    <div class="video-views"><i class="far fa-grin-hearts"></i> {{ search_result['views'] }}</div>
+                    <iframe style="width:100%" height="315" src="https://www.youtube.com/embed/{{ search_result['youTubeId'] }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="recipe_title">{{ search_result['title'] }}</div>
+                </div>
+            </li>
+        {% endfor %}
+      </ul>
+    </div>
+        
+  </div>
+
+</div>
+{% endblock %}

@@ -8,6 +8,7 @@ class Config(object):
     SECRET_KEY = os.environ.get(
         'SECRET_KEY') or os.urandom(32)
     SPOON_API                 = os.environ.get("SPOON_API")
+    LOCAL_IMAGE_URL = os.environ.get("LOCAL_IMAGE_URL")
 
 class ProductionConfig(Config):
     DEBUG = False

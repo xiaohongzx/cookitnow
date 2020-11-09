@@ -34,6 +34,13 @@
     {% endblock %}
     
 
+    <script>
+      $(".close-flashes").click(function (e) {
+          e.preventDefault();
+          $(".flashes").fadeOut();
+      });
+    </script>
+
 
 
     <script type="text/javascript" language="javascript" src="/static/js/recipe_details.js"></script>

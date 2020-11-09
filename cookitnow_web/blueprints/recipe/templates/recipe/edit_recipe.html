@@ -1,0 +1,73 @@
+{% extends "_layout.html" %}
+
+
+{% block content %}
+{% include "search_header.html" %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="flashes">
+    <div class="close-flashes"><i class="fas fa-times"></i></div>
+{% for message in messages %}
+    <p>{{ message }}</p>
+{% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+<div class="upload-recipe">
+    <h1>Edit Recipe {{edit_recipe.r_title}}</h1> 
+ 
+    <div class="upload-form">
+        <form method="POST" autocomplete="off" action="{{url_for('recipe.update_recipe', id = edit_recipe.id )}}" enctype="multipart/form-data">
+            <div class='input-group'>
+                <label for="recipetitle">Recipe Title</label>
+                <input type="text" name="recipetitle" class="input-field" value="{{edit_recipe.r_title}}">
+            </div>
+
+            <div class='input-group'>
+                <label for="recipeimage">Recipe Feature Image</label>
+                <input type="file" name="recipeimage" class="input-field" onchange="loadFile(event)" value="/static/images/uploaded_img/{{edit_recipe.r_image_url}}">
+                <p class="notice">*accept only 'png', 'jpg', 'jpeg' type image, recommended with file name without space, example:"apple.png"</p>
+
+                <p><img id="output" width="200" src="/static/images/uploaded_img/{{edit_recipe.r_image_url}}"/></p>
+            </div>
+
+            <script>
+                var loadFile = function(event) {
+                    var image = document.getElementById('output');
+                    image.src = URL.createObjectURL(event.target.files[0]);
+                };
+            </script>
+
+            <div class='input-group'>
+                <label for="recipetime">Recipe Estimate Cooking Time</label>
+                <input type="text" name="recipetime" class="input-field" value="{{edit_recipe.r_cookingtime}}">
+            </div>
+
+            <div class='input-group'>
+                <label for="recipeserve">Recipe Serving Amount</label>
+                <input type="text" name="recipeserve" class="input-field" value="{{edit_recipe.r_serving}}">
+            </div>
+
+            <div class='input-group'>
+                <label for="recipeingredient">Recipe Ingredient</label>
+                <textarea class="input-field" name="recipeingredient">{{edit_recipe.r_ingredient}}</textarea>
+            </div>
+
+            <div class='input-group'>
+                <label for="recipestep">Recipe Step to Cook</label>
+                <textarea class="input-field" name="recipestep">{{edit_recipe.r_step}}</textarea>
+            </div>
+
+            <div class='input-group'>
+                <label for="recipeabout">Recipe About</label>
+                <textarea class="input-field" name="recipeabout">{{edit_recipe.r_about}}</textarea>
+            </div>
+
+            <input type="submit" class="sub" value="Submit">
+        </form>
+    </div>
+
+</div>
+{% endblock %}

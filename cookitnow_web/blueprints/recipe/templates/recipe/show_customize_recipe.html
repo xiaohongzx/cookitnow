@@ -1,0 +1,29 @@
+{% extends "_layout.html" %}
+
+
+{% block content %}
+{% include "search_header.html" %}
+<div class="recipe-list">
+
+  <div class="search-result">
+    <h1>Our own customize recipe</h1>
+    
+    <div class="search-result-list customize-recipe">
+      <ul>
+        {% for show in all_recipe %}
+        <li>
+          <div>
+            <a id="{{show.id}}"  href="{{url_for('recipe.show_recipe', id = show.id)}}" class="images">
+                <img id="recipeImage" src="/static/images/uploaded_img/{{show.r_image_url}}">
+              </a>
+            <div class="recipe_title"><a id="{{show.id}}"  href="{{url_for('recipe.show_recipe', id = show.id)}}"> {{show.r_title}}</a></div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+        
+  </div>
+
+</div>
+{% endblock %}

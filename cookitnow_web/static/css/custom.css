@@ -642,4 +642,115 @@ footer a {
   font-size:14px;
   color:#989898;
 }
+
+.upload-recipe{
+  padding:30px 20px;
+}
+
+.upload-recipe h1{
+  font-size: 30px;
+  font-weight: 700;
+  display: block;
+  padding-bottom: 10px;
+  color: #f47c48;
+  border-bottom: 1px solid #989898;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.upload-recipe .upload-form label{
+  font-weight:700;
+  padding-bottom:10px;
+}
+
+.upload-recipe .upload-form .input-group{
+  margin-bottom:30px;
+}
+
+.upload-recipe .upload-form .input-group textarea{
+  height:250px;
+  white-space:pre;
+}
+
+p.readonly.show{
+  white-space: pre-line;
+  height:auto;
+  border:none;
+  background:none;
+  padding:0 0;
+  resize:none;
+}
+
+.upload-recipe .upload-form .input-group .notice{
+  display:block;
+  font-size:14px;
+  color:#989898;
+}
+
+.upload-recipe .upload-form .sub{
+  display: block;
+  border-radius: 50px;
+  padding: 10px 20px;
+  background: #f47c48;
+  color: #fff;
+  text-align: center;
+  border:none;
+  width:200px;
+  cursor:pointer;
+}
+
+.upload-form{
+  margin-bottom:30px;
+}
+
+.flashes{
+  position: fixed;
+  top: 65px;
+  left:50%;
+  transform:translateX(-50%);
+  width:97%;
+  padding:15px 40px 15px 20px;
+  border-radius:10px;
+  background:red;
+  color:#ffffff;
+  z-index:999999;
+  opacity:1;
+  animation-name: fadeinout;
+  animation-duration: 1s;
+}
+
+.flashes .close-flashes{
+  position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+
+@keyframes fadeinout {
+  from {
+    top:0; 
+    opacity:0; 
+  }
+  to {
+    top:65px;
+    opacity:1;
+  }
+}
+
+.recipe_step_to_cook{
+  margin-bottom:30px;
+}
+
+.customize-recipe ul li img{
+  height:300px;
+  width:100%;
+}
+
+.search-result-list ul li .recipe_title a{
+  color: #f47c48;
+}
 /*hong css*/

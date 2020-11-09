@@ -1,0 +1,73 @@
+{% extends "_layout.html" %}
+
+
+{% block content %}
+{% include "search_header.html" %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="flashes">
+    <div class="close-flashes"><i class="fas fa-times"></i></div>
+{% for message in messages %}
+    <p>{{ message }}</p>
+{% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+<div class="upload-recipe">
+    <h1>Upload New Recipe</h1> 
+ 
+    <div class="upload-form">
+        <form method="POST" autocomplete="off" action="{{url_for('recipe.create_recipe')}}" enctype="multipart/form-data">
+            <div class='input-group'>
+                <label for="recipetitle">Recipe Title</label>
+                <input type="text" name="recipetitle" class="input-field">
+            </div>
+
+            <div class='input-group'>
+                <label for="recipeimage">Recipe Feature Image</label>
+                <input type="file" name="recipeimage" class="input-field" onchange="loadFile(event)">
+                <p class="notice">*accept only 'png', 'jpg', 'jpeg' type image, recommended with file name without space, example:"apple.png"</p>
+
+                <p><img id="output" width="200" /></p>
+            </div>
+
+            <script>
+                var loadFile = function(event) {
+                    var image = document.getElementById('output');
+                    image.src = URL.createObjectURL(event.target.files[0]);
+                };
+            </script>
+
+            <div class='input-group'>
+                <label for="recipetime">Recipe Estimate Cooking Time</label>
+                <input type="text" name="recipetime" class="input-field">
+            </div>
+
+            <div class='input-group'>
+                <label for="recipeserve">Recipe Serving Amount</label>
+                <input type="text" name="recipeserve" class="input-field">
+            </div>
+
+            <div class='input-group'>
+                <label for="recipeingredient">Recipe Ingredient</label>
+                <textarea class="input-field" name="recipeingredient"></textarea>
+            </div>
+
+            <div class='input-group'>
+                <label for="recipestep">Recipe Step to Cook</label>
+                <textarea class="input-field" name="recipestep"></textarea>
+            </div>
+
+            <div class='input-group'>
+                <label for="recipeabout">Recipe About</label>
+                <textarea class="input-field" name="recipeabout"></textarea>
+            </div>
+
+            <input type="submit" class="sub" value="Submit">
+        </form>
+    </div>
+
+</div>
+{% endblock %}

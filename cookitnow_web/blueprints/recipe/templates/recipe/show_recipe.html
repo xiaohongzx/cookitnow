@@ -1,0 +1,68 @@
+{% extends "_layout.html" %}
+
+
+{% block content %}
+{% include "search_header.html" %}
+<div class="recipe_full_details">
+
+    <div class="recipe_full_details_left">
+        
+        <div id="recipeTitle">
+            {{c_recipe.r_title}}
+            <a href="{{url_for('recipe.edit_recipe', id = c_recipe.id)}}">Edit</a>
+        </div>
+
+        <div class="recipe_food_images">
+            <img id="recipeImage" src="/static/images/uploaded_img/{{c_recipe.r_image_url}}">
+        </div>
+
+        <div class="recipe_estimate_time">
+            <div class="subtitle">Ready in</div>
+            <p>Estimate <b> {{c_recipe.r_cookingtime}}</b> min to cook</p>
+        </div>
+
+        <div class="recipe_serving">
+            <div class="subtitle">Serve for</div>
+            <p class="readonly show">{{c_recipe.r_serving}} people</p>
+        </div>
+
+        <div class="recipe_ingredient_list">
+            <div class="subtitle">Ingredients</div>
+            <p class="readonly show">{{c_recipe.r_ingredient}}</p>
+        </div>
+
+        
+    </div>
+
+    <div class="recipe_full_details_right">
+
+        <div class="recipe_step_to_cook">
+            <div class="subtitle">Steps to Follow</div>
+            <p class="readonly show">
+            {{c_recipe.r_step}}
+            </p>
+        </div>
+
+        <div class="recipe_about">
+            <div class="subtitle">About This Recipe</div>
+            <div id="recipeInstructions" class="recipeInstructions">{{c_recipe.r_about}}</div>
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

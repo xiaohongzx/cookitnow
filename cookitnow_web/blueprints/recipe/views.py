@@ -161,3 +161,39 @@ def update_recipe(id):
             return redirect(url_for("recipe.edit_recipe", id=id))
     
     return render_template("recipe/edit_recipe.html", update_recipe = update_recipe, id = id)          
+
+
+@recipe_blueprint.route('/meal_plan', methods=["GET"])
+def meal_plan():
+    return render_template("recipe/meal_plan.html")
+
+@recipe_blueprint.route('/search_meal_plan', methods=['GET', 'POST'])
+def search_meal_plan():
+    if request.method == 'POST':
+        content = requests.get(
+            "https://api.spoonacular.com/mealplanner/generate?timeFrame=day&targetCalories=" + 
+            (request.form['caloriesperday']) + "&diet=" +
+            (request.form['diettype']) + "&exclude=" +
+            (request.form['exclude_ingredient']) +
+            "&number=20&apiKey=" + app.config.get("SPOON_API"))
+        json_response = json.loads(content.text)
+        return render_template("recipe/meal_plan_result.html", response=json_response) if json_response != [] else render_template(
+            "recipe/meal_plan_result.html", response="")
+    else:
+        return render_template("recipe/meal_plan.html") 
+
+
+@recipe_blueprint.route('/search_meal_plan_weekly', methods=['GET', 'POST'])
+def search_meal_plan_weekly():
+    if request.method == 'POST':
+        content = requests.get(
+            "https://api.spoonacular.com/mealplanner/generate?timeFrame=week&targetCalories=" + 
+            (request.form['caloriesperday']) + "&diet=" +
+            (request.form['diettype']) + "&exclude=" +
+            (request.form['exclude_ingredient']) +
+            "&number=20&apiKey=" + app.config.get("SPOON_API"))
+        json_response = json.loads(content.text)
+        return render_template("recipe/meal_plan_weekly_result.html", response=json_response) if json_response != [] else render_template(
+            "recipe/meal_plan_weekly_result.html", response="")
+    else:
+        return render_template("recipe/meal_plan.html")         

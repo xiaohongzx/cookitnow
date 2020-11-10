@@ -1,0 +1,49 @@
+{% extends "_layout.html" %}
+
+
+{% block content %}
+{% include "search_header.html" %}
+<div class="recipe-list">
+
+  <div class="search-result">
+    {% if response!=undefined and response|length > 0%}
+    <h1>Daily Meal Plan</h1>
+    {% else %}
+      {% if response!="No recipes found"%}
+      <p>No recipes found</p>
+      {% else %}
+      {% endif %}
+    {% endif %}
+
+    
+    <div class="search-result-mealplan">
+      <ul>
+        {% for search_result in response["meals"] %}
+        <li>
+            <div class="image"><img id="recipeImage" src="https://spoonacular.com/recipeImages/{{search_result['id']}}-556x370.{{search_result['imageType']}}"></div>
+            <div class="content">
+                <div class="recipe_title">{{ search_result['title'] }}</div>
+                <div class="recipe_time">Ready in <b>{{ search_result['readyInMinutes'] }}</b> minute</div>
+                <div class="recipe_serve">Serve for <b>{{ search_result['servings'] }}</b> people</div>
+                <a id="{{search_result['id']}}"  onclick="recipeDetails({{search_result['id']}})" class="images">Check Recipe</a>
+            </div>      
+        </li>
+        {% endfor %}
+      </ul>
+
+      <div class="nutrients">
+        <div>
+            <div>
+                <p>Calories: <b>{{ response["nutrients"]['calories'] }} kcal</b></p>
+                <p>Carbohydrates: <b>{{ response["nutrients"]['carbohydrates'] }} gram</b></p>
+                <p>Fat: <b>{{ response["nutrients"]['fat'] }} gram</b></p>       
+                <p>Protein: <b>{{ response["nutrients"]['protein'] }} gram</b></p>
+            </div>
+        </div>
+      </div>
+    </div>
+        
+  </div>
+
+</div>
+{% endblock %}

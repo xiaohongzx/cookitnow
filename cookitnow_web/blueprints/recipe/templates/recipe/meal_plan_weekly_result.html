@@ -1,0 +1,237 @@
+{% extends "_layout.html" %}
+
+
+{% block content %}
+{% include "search_header.html" %}
+<div class="recipe-list">
+
+  <div class="search-result">
+    {% if response!=undefined and response|length > 0%}
+    <h1>Weekly Meal Plan</h1>
+    {% else %}
+      {% if response!="No recipes found"%}
+      <p>No recipes found</p>
+      {% else %}
+      {% endif %}
+    {% endif %}
+
+    <div class="weekday-selection">
+        <ul>
+            <li href="#monday" class="active">Monday</li>
+            <li href="#tuesday">Tuesday</li>
+            <li href="#wednesday">Wednesday</li>
+            <li href="#thursday">Thursday</li>
+            <li href="#friday">Friday</li>
+            <li href="#saturday">Saturday</li>
+            <li href="#sunday">Sunday</li>
+        </ul>
+    </div>
+    
+    <div class="search-result-mealplan" id="monday">
+      <ul>
+        {% for search_result in response["week"]["monday"]["meals"] %}
+        <li>
+            <div class="image"><img id="recipeImage" src="https://spoonacular.com/recipeImages/{{search_result['id']}}-556x370.{{search_result['imageType']}}"></div>
+            <div class="content">
+                <div class="recipe_title">{{ search_result['title'] }}</div>
+                <div class="recipe_time">Ready in <b>{{ search_result['readyInMinutes'] }}</b> minute</div>
+                <div class="recipe_serve">Serve for <b>{{ search_result['servings'] }}</b> people</div>
+                <a id="{{search_result['id']}}"  onclick="recipeDetails({{search_result['id']}})" class="images">Check Recipe</a>
+            </div>      
+        </li>
+        {% endfor %}
+      </ul>
+
+      <div class="nutrients">
+        <div>
+            <div>
+                <p>Calories: <b>{{ response["week"]["monday"]["nutrients"]['calories'] }} kcal</b></p>
+                <p>Carbohydrates: <b>{{ response["week"]["monday"]["nutrients"]['carbohydrates'] }} gram</b></p>
+                <p>Fat: <b>{{ response["week"]["monday"]["nutrients"]['fat'] }} gram</b></p>       
+                <p>Protein: <b>{{ response["week"]["monday"]["nutrients"]['protein'] }} gram</b></p>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-result-mealplan" id="tuesday" style="display:none">
+      <ul>
+        {% for search_result in response["week"]["tuesday"]["meals"] %}
+        <li>
+            <div class="image"><img id="recipeImage" src="https://spoonacular.com/recipeImages/{{search_result['id']}}-556x370.{{search_result['imageType']}}"></div>
+            <div class="content">
+                <div class="recipe_title">{{ search_result['title'] }}</div>
+                <div class="recipe_time">Ready in <b>{{ search_result['readyInMinutes'] }}</b> minute</div>
+                <div class="recipe_serve">Serve for <b>{{ search_result['servings'] }}</b> people</div>
+                <a id="{{search_result['id']}}"  onclick="recipeDetails({{search_result['id']}})" class="images">Check Recipe</a>
+            </div>      
+        </li>
+        {% endfor %}
+      </ul>
+
+      <div class="nutrients">
+        <div>
+            <div>
+                <p>Calories: <b>{{ response["week"]["tuesday"]["nutrients"]['calories'] }} kcal</b></p>
+                <p>Carbohydrates: <b>{{ response["week"]["tuesday"]["nutrients"]['carbohydrates'] }} gram</b></p>
+                <p>Fat: <b>{{ response["week"]["tuesday"]["nutrients"]['fat'] }} gram</b></p>       
+                <p>Protein: <b>{{ response["week"]["tuesday"]["nutrients"]['protein'] }} gram</b></p>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-result-mealplan" id="wednesday" style="display:none">
+      <ul>
+        {% for search_result in response["week"]["wednesday"]["meals"] %}
+        <li>
+            <div class="image"><img id="recipeImage" src="https://spoonacular.com/recipeImages/{{search_result['id']}}-556x370.{{search_result['imageType']}}"></div>
+            <div class="content">
+                <div class="recipe_title">{{ search_result['title'] }}</div>
+                <div class="recipe_time">Ready in <b>{{ search_result['readyInMinutes'] }}</b> minute</div>
+                <div class="recipe_serve">Serve for <b>{{ search_result['servings'] }}</b> people</div>
+                <a id="{{search_result['id']}}"  onclick="recipeDetails({{search_result['id']}})" class="images">Check Recipe</a>
+            </div>      
+        </li>
+        {% endfor %}
+      </ul>
+
+      <div class="nutrients">
+        <div>
+            <div>
+                <p>Calories: <b>{{ response["week"]["wednesday"]["nutrients"]['calories'] }} kcal</b></p>
+                <p>Carbohydrates: <b>{{ response["week"]["wednesday"]["nutrients"]['carbohydrates'] }} gram</b></p>
+                <p>Fat: <b>{{ response["week"]["wednesday"]["nutrients"]['fat'] }} gram</b></p>       
+                <p>Protein: <b>{{ response["week"]["wednesday"]["nutrients"]['protein'] }} gram</b></p>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="search-result-mealplan" id="thursday" style="display:none">
+      <ul>
+        {% for search_result in response["week"]["thursday"]["meals"] %}
+        <li>
+            <div class="image"><img id="recipeImage" src="https://spoonacular.com/recipeImages/{{search_result['id']}}-556x370.{{search_result['imageType']}}"></div>
+            <div class="content">
+                <div class="recipe_title">{{ search_result['title'] }}</div>
+                <div class="recipe_time">Ready in <b>{{ search_result['readyInMinutes'] }}</b> minute</div>
+                <div class="recipe_serve">Serve for <b>{{ search_result['servings'] }}</b> people</div>
+                <a id="{{search_result['id']}}"  onclick="recipeDetails({{search_result['id']}})" class="images">Check Recipe</a>
+            </div>      
+        </li>
+        {% endfor %}
+      </ul>
+
+      <div class="nutrients">
+        <div>
+            <div>
+                <p>Calories: <b>{{ response["week"]["thursday"]["nutrients"]['calories'] }} kcal</b></p>
+                <p>Carbohydrates: <b>{{ response["week"]["thursday"]["nutrients"]['carbohydrates'] }} gram</b></p>
+                <p>Fat: <b>{{ response["week"]["thursday"]["nutrients"]['fat'] }} gram</b></p>       
+                <p>Protein: <b>{{ response["week"]["thursday"]["nutrients"]['protein'] }} gram</b></p>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-result-mealplan" id="friday" style="display:none">
+      <ul>
+        {% for search_result in response["week"]["friday"]["meals"] %}
+        <li>
+            <div class="image"><img id="recipeImage" src="https://spoonacular.com/recipeImages/{{search_result['id']}}-556x370.{{search_result['imageType']}}"></div>
+            <div class="content">
+                <div class="recipe_title">{{ search_result['title'] }}</div>
+                <div class="recipe_time">Ready in <b>{{ search_result['readyInMinutes'] }}</b> minute</div>
+                <div class="recipe_serve">Serve for <b>{{ search_result['servings'] }}</b> people</div>
+                <a id="{{search_result['id']}}"  onclick="recipeDetails({{search_result['id']}})" class="images">Check Recipe</a>
+            </div>      
+        </li>
+        {% endfor %}
+      </ul>
+
+      <div class="nutrients">
+        <div>
+            <div>
+                <p>Calories: <b>{{ response["week"]["friday"]["nutrients"]['calories'] }} kcal</b></p>
+                <p>Carbohydrates: <b>{{ response["week"]["friday"]["nutrients"]['carbohydrates'] }} gram</b></p>
+                <p>Fat: <b>{{ response["week"]["friday"]["nutrients"]['fat'] }} gram</b></p>       
+                <p>Protein: <b>{{ response["week"]["friday"]["nutrients"]['protein'] }} gram</b></p>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-result-mealplan" id="saturday" style="display:none">
+      <ul>
+        {% for search_result in response["week"]["saturday"]["meals"] %}
+        <li>
+            <div class="image"><img id="recipeImage" src="https://spoonacular.com/recipeImages/{{search_result['id']}}-556x370.{{search_result['imageType']}}"></div>
+            <div class="content">
+                <div class="recipe_title">{{ search_result['title'] }}</div>
+                <div class="recipe_time">Ready in <b>{{ search_result['readyInMinutes'] }}</b> minute</div>
+                <div class="recipe_serve">Serve for <b>{{ search_result['servings'] }}</b> people</div>
+                <a id="{{search_result['id']}}"  onclick="recipeDetails({{search_result['id']}})" class="images">Check Recipe</a>
+            </div>      
+        </li>
+        {% endfor %}
+      </ul>
+
+      <div class="nutrients">
+        <div>
+            <div>
+                <p>Calories: <b>{{ response["week"]["saturday"]["nutrients"]['calories'] }} kcal</b></p>
+                <p>Carbohydrates: <b>{{ response["week"]["saturday"]["nutrients"]['carbohydrates'] }} gram</b></p>
+                <p>Fat: <b>{{ response["week"]["saturday"]["nutrients"]['fat'] }} gram</b></p>       
+                <p>Protein: <b>{{ response["week"]["saturday"]["nutrients"]['protein'] }} gram</b></p>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="search-result-mealplan" id="sunday" style="display:none">
+      <ul>
+        {% for search_result in response["week"]["sunday"]["meals"] %}
+        <li>
+            <div class="image"><img id="recipeImage" src="https://spoonacular.com/recipeImages/{{search_result['id']}}-556x370.{{search_result['imageType']}}"></div>
+            <div class="content">
+                <div class="recipe_title">{{ search_result['title'] }}</div>
+                <div class="recipe_time">Ready in <b>{{ search_result['readyInMinutes'] }}</b> minute</div>
+                <div class="recipe_serve">Serve for <b>{{ search_result['servings'] }}</b> people</div>
+                <a id="{{search_result['id']}}"  onclick="recipeDetails({{search_result['id']}})" class="images">Check Recipe</a>
+            </div>      
+        </li>
+        {% endfor %}
+      </ul>
+
+      <div class="nutrients">
+        <div>
+            <div>
+                <p>Calories: <b>{{ response["week"]["sunday"]["nutrients"]['calories'] }} kcal</b></p>
+                <p>Carbohydrates: <b>{{ response["week"]["sunday"]["nutrients"]['carbohydrates'] }} gram</b></p>
+                <p>Fat: <b>{{ response["week"]["sunday"]["nutrients"]['fat'] }} gram</b></p>       
+                <p>Protein: <b>{{ response["week"]["sunday"]["nutrients"]['protein'] }} gram</b></p>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    
+        
+  </div>
+
+</div>
+
+<script>
+$('.weekday-selection ul li').click(function(){   
+    $(this).addClass("active");
+    $(this).siblings().removeClass("active");
+    var tab = $(this).attr("href"); 
+    $(".search-result-mealplan").not(tab).hide();
+    $(tab).fadeIn();
+});
+</script>
+
+{% endblock %}

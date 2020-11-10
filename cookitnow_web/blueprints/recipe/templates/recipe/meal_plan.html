@@ -1,0 +1,119 @@
+{% extends "_layout.html" %}
+
+
+{% block content %}
+{% include "search_header.html" %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="flashes">
+    <div class="close-flashes"><i class="fas fa-times"></i></div>
+{% for message in messages %}
+    <p>{{ message }}</p>
+{% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+<div class="mealplan">
+    <h1>Check out our meal planning system!</h1>
+
+    <div class="select-meal-plan">
+        <div class="daily active">Daily Meal Plan</div>
+        <div class="weekly">Weekly Meal Plan</div>
+    </div>
+
+
+    <div class="mealplan-form daily-mealplan">
+        <form method="POST" autocomplete="off" action="{{url_for('recipe.search_meal_plan')}}" enctype="multipart/form-data">
+
+            <div class='input-group'>
+                <label for="caloriesperday">Time Frame</label>
+                <input type="text" value="DAY" class="input-field" readonly>
+            </div>
+
+            <div class='input-group'>
+                <label for="caloriesperday">Target Calories per day</label>
+                <input type="text" name="caloriesperday" placeholder="2000" class="input-field">
+            </div>
+
+            <div class='input-group'>
+                <label>Diet Type</label>
+                <select name="diettype" class="input-field">
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="ketogenic">Ketogenic</option>
+                    <option value="lactovegetarian">Lacto-Vegetarian</option>
+                    <option value="ovovegetarian">Ovo-Vegetarian</option>
+                    <option value="vegan">Vegan</option>
+                    <option value="paleo">Paleo</option>
+                    <option value="primal">Primal</option>
+                    <option value="whole30">Whole30</option>
+                </select>
+            </div>
+
+            <div class='input-group'>
+                <label for="exclude_ingredient">Exclude</label>
+                <input type="text" name="exclude_ingredient" placeholder="shellfish, olives" class="input-field">
+                <p class="notice">A comma-separated list of allergens or ingredients that must be excluded.</p>
+            </div>
+
+            <input type="submit" class="sub" value="Submit">
+        </form>
+    </div>
+
+    <div class="mealplan-form weekly-mealplan" style="display:none"> 
+        <form method="POST" autocomplete="off" action="{{url_for('recipe.search_meal_plan_weekly')}}" enctype="multipart/form-data">
+            <div class='input-group'>
+                <label for="caloriesperday">Time Frame</label>
+                <input type="text" value="WEEK" class="input-field" readonly>
+            </div>
+
+            <div class='input-group'>
+                <label for="caloriesperday">Target Calories per day</label>
+                <input type="text" name="caloriesperday" placeholder="2000" class="input-field">
+            </div>
+
+            <div class='input-group'>
+                <label>Diet Type</label>
+                <select name="diettype" class="input-field">
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="ketogenic">Ketogenic</option>
+                    <option value="lactovegetarian">Lacto-Vegetarian</option>
+                    <option value="ovovegetarian">Ovo-Vegetarian</option>
+                    <option value="vegan">Vegan</option>
+                    <option value="paleo">Paleo</option>
+                    <option value="primal">Primal</option>
+                    <option value="whole30">Whole30</option>
+                </select>
+            </div>
+
+            <div class='input-group'>
+                <label for="exclude_ingredient">Exclude</label>
+                <input type="text" name="exclude_ingredient" placeholder="shellfish, olives" class="input-field">
+                <p class="notice">A comma-separated list of allergens or ingredients that must be excluded.</p>
+            </div>
+
+            <input type="submit" class="sub" value="Submit">
+        </form>
+    </div>
+
+</div>
+
+<script>
+$(".select-meal-plan > div").click(function(e) {
+    $(this).addClass("active")
+    $(this).siblings().removeClass("active")
+});
+
+$(".select-meal-plan .daily").click(function(e) {
+    $(".weekly-mealplan").hide()
+    $(".daily-mealplan").fadeIn()
+});
+
+$(".select-meal-plan .weekly").click(function(e) {
+    $(".daily-mealplan").hide()
+    $(".weekly-mealplan").fadeIn()
+});
+</script>
+{% endblock %}
+

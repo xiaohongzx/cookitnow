@@ -906,4 +906,205 @@ box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.38);
   background:#007bff;
   margin-bottom:10px;
 }
+
+.mealplan{
+  padding:30px 20px 60px;
+}
+
+.mealplan h1{
+  font-size: 30px;
+  font-weight: 700;
+  display: block;
+  padding-bottom: 10px;
+  color: #f47c48;
+  border-bottom: 1px solid #989898;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.mealplan .mealplan-form{
+  width:100%;
+  max-width:600px;
+  margin:0 auto;
+  padding-top:50px;
+}
+
+.mealplan .mealplan-form .input-group{
+  margin-bottom:30px;
+}
+
+.mealplan .mealplan-form label{
+  font-weight:700;
+  padding-bottom:10px;
+}
+
+.mealplan .mealplan-form .input-group .notice{
+  display:block;
+  font-size:14px;
+  color:#989898;
+}
+
+.mealplan .mealplan-form .sub{
+  display: block;
+  border-radius: 50px;
+  padding: 10px 20px;
+  background: #f47c48;
+  color: #fff;
+  text-align: center;
+  border:none;
+  width:200px;
+  cursor:pointer;
+}
+
+.select-meal-plan{
+  display:flex;
+  width:100%;
+  max-width:600px;
+  margin:0 auto;
+  padding-top:40px;
+}
+
+.select-meal-plan > div{
+  width:50%;
+  padding:20px;
+  text-align:center;
+  border:1px solid #d7d7d7;
+  color:#f47c48;
+  cursor:pointer;
+  transition:all ease 0.3s;
+}
+
+.select-meal-plan > div:hover,
+.select-meal-plan > div.active{
+  background:#f47c48;
+  color:#ffffff;
+  border:1px solid #f47c48;
+  transition:all ease 0.3s;
+}
+
+.search-result-mealplan{
+  max-width:1100px;
+  width:100%;
+  margin:0 auto;
+  display:flex;
+  padding-top:50px;
+}
+
+.search-result-mealplan .nutrients{
+  width:200px;
+  padding:20px 20px;
+  border:1px solid #d7d7d7;
+  border-left:none;
+}
+
+.search-result-mealplan ul{
+  width:calc(100% - 200px)
+}
+
+.search-result-mealplan ul li{
+  display:flex;
+  border:1px solid #d7d7d7;
+  border-bottom:none;
+}
+
+.search-result-mealplan ul li:last-child{
+  border-bottom:1px solid #d7d7d7;
+}
+
+.search-result-mealplan ul li .image{
+  width:300px;
+}
+
+.search-result-mealplan ul li .image img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit: cover;
+}
+
+.search-result-mealplan ul li .content{
+  width:calc(100% - 300px);
+  position:relative;
+}
+
+.search-result-mealplan ul li .content .recipe_title{
+  color: #f47c48;
+  padding-bottom:10px;
+  font-size:20px;
+  font-weight:700;
+  line-height:1.5;
+}
+
+.search-result-mealplan ul li .content .recipe_time,
+.search-result-mealplan ul li .content .recipe_serve{
+  padding-bottom:10px;
+}
+
+.search-result-mealplan ul li .content .recipe_time b,
+.search-result-mealplan ul li .content .recipe_serve b{
+  color: #f47c48;
+  font-weight:700;
+}
+
+.search-result-mealplan ul li .content a{
+  position:absolute;
+  bottom:20px;
+  right:20px;
+  display:block;
+  width:180px;
+  padding:10px 10px;
+  background:#f47c48;
+  border-radius:5px;
+  color:#ffffff;
+  text-align:center;
+}
+
+.search-result-mealplan .nutrients p{
+  padding:10px 0px;
+}
+
+.search-result-mealplan .nutrients b{
+  display:block;
+  text-align:right;
+  font-weight:700;
+  color:#f47c48;
+}
+
+.search-result-mealplan .nutrients > div{
+  height:100%;
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+
+.weekday-selection{
+  padding-top:50px;
+  width:100%;
+  max-width:1100px;
+  margin:0 auto;
+}
+
+.weekday-selection ul{
+  display:flex;
+  width:100%;
+  align-items:center;
+  justify-content: center;
+}
+
+.weekday-selection ul li{
+  padding:10px 10px;
+  border-radius:5px;
+  margin:10px 10px;
+  text-align:center;
+  cursor:pointer;
+  border:1px solid #d7d7d7;
+  color:#000000;
+  width:120px;
+}
+
+.weekday-selection ul li:hover,
+.weekday-selection ul li.active{
+  background:#f47c48;
+  color:#ffffff;
+}
 /*hong css*/

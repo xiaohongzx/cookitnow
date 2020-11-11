@@ -26,7 +26,7 @@ def create():
     duplicate_email = User.get_or_none(User.email == email)
 
     if create_new_user.save():
-        return redirect("/")
+        return redirect(url_for("users.login"))
     else:
         if duplicate_username: 
             flash("- This username has been used, please try another username")
@@ -56,7 +56,6 @@ def show(username):
 def login():
     return render_template("users/login.html")
 
-<<<<<<< HEAD
 
 @users_blueprint.route('/login/session', methods=[ 'POST' ])
 def login_session():
@@ -86,11 +85,6 @@ def logout():
     logout_user()
     flash('Signout Successfully', 'success')
     return redirect(url_for('users.login'))
-=======
-
-@users_blueprint.route('/login/session', methods=[ 'POST' ])
-def login_session():
->>>>>>> 938f9c1f82bb87ebbb5293ad3a06733a8de7191a
 
     data = request.form
     user = User.get_or_none(username= data.get('username'))
@@ -112,8 +106,4 @@ def login_session():
         return redirect(url_for('users.login'))
 
 
-@users_blueprint.route('/logout', methods=['POST'])
-def logout():
-    logout_user()
-    flash('Signout Successfully', 'success')
-    return redirect(url_for('users.login'))
+

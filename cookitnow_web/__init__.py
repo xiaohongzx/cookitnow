@@ -4,6 +4,7 @@ from cookitnow_web.blueprints.users.views import users_blueprint
 from cookitnow_web.blueprints.recipe.views import recipe_blueprint
 from flask_assets import Environment, Bundle
 from .util.assets import bundles
+from models.user import User
 
 assets = Environment(app)
 assets.register(bundles)

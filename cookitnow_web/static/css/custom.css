@@ -238,6 +238,7 @@ footer a {
 .nav-bar .nav-list ul li{
   display:inline-block;
   margin:0px 20px;
+  position:relative;
 }
 
 .nav-bar .nav-list ul li a{
@@ -719,6 +720,10 @@ p.readonly.show{
   animation-duration: 1s;
 }
 
+.flashes.success{
+  background:green;
+}
+
 .flashes .close-flashes{
   position: absolute;
     right: 20px;
@@ -752,5 +757,153 @@ p.readonly.show{
 
 .search-result-list ul li .recipe_title a{
   color: #f47c48;
+}
+
+.login-signup{
+  padding:50px 20px 100px;
+}
+
+.login-signup h1{
+  font-size: 30px;
+  font-weight: 700;
+  display: block;
+  padding-bottom: 10px;
+  color: #f47c48;
+  border-bottom: 1px solid #989898;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.login-signup-form{
+  width:100%;
+  max-width:600px;
+  margin:0 auto;
+  padding-top:50px;
+}
+
+.login-signup-form label{
+  font-weight:700;
+  padding-bottom:10px;
+}
+
+.login-signup-form .input-group{
+  margin-bottom:30px;
+}
+
+.login-signup-form .sub {
+  display: block;
+  border-radius: 50px;
+  padding: 10px 20px;
+  background: #f47c48;
+  color: #fff;
+  text-align: center;
+  border: none;
+  width: 200px;
+  cursor: pointer;
+}
+
+.member-dashboard{
+  padding:50px 20px 100px;
+}
+
+.member-dashboard h1{
+  font-size: 30px;
+  font-weight: 700;
+  display: block;
+  padding-bottom: 10px;
+  color: #f47c48;
+  border-bottom: 1px solid #989898;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.member-dashboard .userprofile-info{
+  width:100%;
+  max-width:600px;
+  margin:0 auto;
+  padding-top:50px;
+}
+
+.member-dashboard .userprofile-info > div{
+  display:block;
+  padding-bottom:20px;
+}
+
+.member-dashboard .userprofile-info .username{
+  color: #f47c48;
+  font-weight:700;
+}
+
+.userprofile-info .logout{
+  display: block;
+  border-radius: 50px;
+  padding: 10px 20px;
+  background: #f47c48;
+  color: #fff;
+  text-align: center;
+  border: none;
+  width: 200px;
+  cursor: pointer;
+}
+
+.nav-bar .nav-list ul li .dashboard{
+  cursor:pointer;
+  display: block;
+  border-radius: 50px;
+  padding: 10px 20px;
+  background: #f47c48;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.nav-bar .nav-list ul li .dashboard-dd{
+  display:none;
+  position: absolute;
+  top:40px;
+  right:0;
+  width:auto;
+  border:1px solid #d7d7d7;
+  background:#ffffff;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.38);
+-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.38);
+box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.38);
+}
+
+.nav-bar .nav-list ul li .dashboard-dd a,
+.nav-bar .nav-list ul li .dashboard-dd input{
+  display:block;
+  width:100%;
+  padding:10px 20px;
+  color:#000000;
+  border:none;
+  background:none;
+  text-transform:capitalize;
+  text-align:left;
+  cursor:pointer;
+  text-decoration:none;
+  transition: all ease 0.3s;
+}
+
+.nav-bar .nav-list ul li .dashboard-dd a:hover,
+.nav-bar .nav-list ul li .dashboard-dd input:hover{
+  background:#f47c48;
+  color:#ffffff;
+  transition: all ease 0.3s;
+
+}
+
+.recipe_full_details_left a.editRecipe{
+  display:block;
+  color:#ffffff;
+  font-weight:700;
+  padding:10px 10px;
+  text-align:center;
+  width:150px;
+  border-radius:50px;
+  text-decoration:none;
+  background:#007bff;
+  margin-bottom:10px;
 }
 /*hong css*/

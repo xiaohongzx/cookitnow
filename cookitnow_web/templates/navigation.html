@@ -8,9 +8,24 @@
             <li><a href="/">Home</a></li>
             <li><a href="{{url_for('recipe.random_recipe')}}">Random Recipe</a></li>
             <li><a href="{{url_for('recipe.show_customize_recipe')}}">Our Original Recipe</a></li>
+            {% if current_user.get_id() == 1 %}
             <li><a href="{{url_for('recipe.upload_recipe')}}">Upload Recipe</a></li>
-            <li><a href="#">Login</a></li>
-            <li><a href="#" class="signup">SignUp</a></li>
+            {% endif %}
+
+            {% if current_user.is_authenticated %}
+            <li>
+                <a class="dashboard">{{current_user.username}}</a>
+                <div class="dashboard-dd">
+                    <a href="{{url_for('users.show', username = current_user.username)}}">Dashboard</a>
+                    <form action="{{url_for('users.logout')}}" method="post">
+                        <input type='submit' value="Logout" class="logout">
+                    </form> 
+                </div>
+            </li>
+            {% else %}
+            <li><a href="{{url_for('users.login')}}">Login</a></li>
+            <li><a href="{{url_for('users.new')}}" class="signup">SignUp</a></li>
+            {% endif %}
         </ul>
     </div>
 </div>
@@ -24,9 +39,23 @@
             <li><a href="/">Home</a></li>
             <li><a href="{{url_for('recipe.random_recipe')}}">Random Recipe</a></li>
             <li><a href="{{url_for('recipe.show_customize_recipe')}}">Our Original Recipe</a></li>
+            {% if current_user.get_id() == 1 %}
             <li><a href="{{url_for('recipe.upload_recipe')}}">Upload Recipe</a></li>
-            <li><a href="#">Login</a></li>
-            <li><a href="#" class="signup">SignUp</a></li>
+            {% endif %}
+            {% if current_user.is_authenticated %}
+            <li>
+                <a class="dashboard">{{current_user.username}}</a>
+                <div class="dashboard-dd">
+                    <a href="{{url_for('users.show', username = current_user.username)}}">Dashboard</a>
+                    <form action="{{url_for('users.logout')}}" method="post">
+                        <input type='submit' value="Logout" class="logout">
+                    </form> 
+                </div>
+            </li>
+            {% else %}
+            <li><a href="{{url_for('users.login')}}">Login</a></li>
+            <li><a href="{{url_for('users.new')}}" class="signup">SignUp</a></li>
+            {% endif %}
         </ul>
     </div>
 </div>

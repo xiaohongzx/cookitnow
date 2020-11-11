@@ -1,0 +1,35 @@
+{% extends "_layout.html" %}
+
+
+{% block content %}
+{% include "search_header.html" %}
+
+{% with messages = get_flashed_messages(category_filter=["success"]) %}
+{% if messages %}
+<div class="flashes success">
+    <div class="close-flashes"><i class="fas fa-times"></i></div>
+{% for message in messages %}
+    <p>{{ message }}</p>
+{% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+
+<div class="member-dashboard">
+    <h1>Welcome back , {{user.username}}</h1> 
+ 
+    <div class="userprofile-info">
+        <div class="username">{{user.username}}</div>
+        <div>User Profile ID: {{user.id}}</div>
+        <div>Email: {{user.email}}</div>
+        <div>
+            <form action="{{url_for('users.logout')}}" method="post">
+                <input type='submit' value="Logout" class="logout">
+            </form> 
+        </div>
+    </div>
+
+    
+</div>
+{% endblock %}

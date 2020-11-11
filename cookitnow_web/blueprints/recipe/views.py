@@ -1,10 +1,11 @@
-from flask import Blueprint, render_template, flash, redirect, url_for, request, make_response
+from flask import Blueprint, render_template, flash, redirect, url_for, request, make_response, session
 import requests
 from app import app
 from models.upload_recipe import UploadRecipe
 import json
 import os
 from werkzeug import secure_filename
+from flask_login import login_required, current_user, login_user, logout_user
 
 
 UPLOAD_FOLDER = 'cookitnow_web/static/images/uploaded_img/'
@@ -103,7 +104,7 @@ def create_recipe():
     )
 
     if create_new_recipe.save():   
-        return redirect(url_for("recipe.show_recipe"))
+        return redirect(url_for("recipe.show_customize_recipe"))
     else:
         return redirect(url_for("recipe.upload_recipe"))
 
@@ -161,3 +162,39 @@ def update_recipe(id):
             return redirect(url_for("recipe.edit_recipe", id=id))
     
     return render_template("recipe/edit_recipe.html", update_recipe = update_recipe, id = id)          
+
+
+@recipe_blueprint.route('/meal_plan', methods=["GET"])
+def meal_plan():
+    return render_template("recipe/meal_plan.html")
+
+@recipe_blueprint.route('/search_meal_plan', methods=['GET', 'POST'])
+def search_meal_plan():
+    if request.method == 'POST':
+        content = requests.get(
+            "https://api.spoonacular.com/mealplanner/generate?timeFrame=day&targetCalories=" + 
+            (request.form['caloriesperday']) + "&diet=" +
+            (request.form['diettype']) + "&exclude=" +
+            (request.form['exclude_ingredient']) +
+            "&number=20&apiKey=" + app.config.get("SPOON_API"))
+        json_response = json.loads(content.text)
+        return render_template("recipe/meal_plan_result.html", response=json_response) if json_response != [] else render_template(
+            "recipe/meal_plan_result.html", response="")
+    else:
+        return render_template("recipe/meal_plan.html") 
+
+
+@recipe_blueprint.route('/search_meal_plan_weekly', methods=['GET', 'POST'])
+def search_meal_plan_weekly():
+    if request.method == 'POST':
+        content = requests.get(
+            "https://api.spoonacular.com/mealplanner/generate?timeFrame=week&targetCalories=" + 
+            (request.form['caloriesperday']) + "&diet=" +
+            (request.form['diettype']) + "&exclude=" +
+            (request.form['exclude_ingredient']) +
+            "&number=20&apiKey=" + app.config.get("SPOON_API"))
+        json_response = json.loads(content.text)
+        return render_template("recipe/meal_plan_weekly_result.html", response=json_response) if json_response != [] else render_template(
+            "recipe/meal_plan_weekly_result.html", response="")
+    else:
+        return render_template("recipe/meal_plan.html")         

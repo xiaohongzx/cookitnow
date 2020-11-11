@@ -1,10 +1,11 @@
-from flask import Blueprint, render_template, flash, redirect, url_for, request, make_response
+from flask import Blueprint, render_template, flash, redirect, url_for, request, make_response, session
 import requests
 from app import app
 from models.upload_recipe import UploadRecipe
 import json
 import os
 from werkzeug import secure_filename
+from flask_login import login_required, current_user, login_user, logout_user
 
 
 UPLOAD_FOLDER = 'cookitnow_web/static/images/uploaded_img/'
@@ -103,7 +104,7 @@ def create_recipe():
     )
 
     if create_new_recipe.save():   
-        return redirect(url_for("recipe.show_recipe"))
+        return redirect(url_for("recipe.show_customize_recipe"))
     else:
         return redirect(url_for("recipe.upload_recipe"))
 

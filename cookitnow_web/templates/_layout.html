@@ -41,7 +41,26 @@
       });
     </script>
 
+<script>
+$(".nav-list ul li a.dashboard").click(function (e) {
+    e.preventDefault();
+    $(".dashboard-dd").fadeToggle();
+});
 
+
+$(document).mouseup(function(e) 
+{
+  var button =$(".nav-list ul li a.dashboard");
+    var container = $(".dashboard-dd");
+
+    // if the target of the click isn't the container nor a descendant of the container
+    if (!container.is(e.target) && container.has(e.target).length === 0 && !button.is(e.target)) 
+    {
+        container.fadeOut(200);
+    }
+
+});
+</script>
 
     <script type="text/javascript" language="javascript" src="/static/js/recipe_details.js"></script>
   </body>

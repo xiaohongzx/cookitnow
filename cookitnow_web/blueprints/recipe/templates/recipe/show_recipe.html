@@ -6,10 +6,13 @@
 <div class="recipe_full_details">
 
     <div class="recipe_full_details_left">
-        
+        {% if current_user.get_id() == 1 %}
+            <a href="{{url_for('recipe.edit_recipe', id = c_recipe.id)}}" class="editRecipe">Edit Recipe</a>
+            <div class="clear"></div>
+        {% endif %}
+
         <div id="recipeTitle">
             {{c_recipe.r_title}}
-            <a href="{{url_for('recipe.edit_recipe', id = c_recipe.id)}}">Edit</a>
         </div>
 
         <div class="recipe_food_images">

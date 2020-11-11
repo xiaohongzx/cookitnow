@@ -56,6 +56,7 @@ def show(username):
 def login():
     return render_template("users/login.html")
 
+<<<<<<< HEAD
 
 @users_blueprint.route('/login/session', methods=[ 'POST' ])
 def login_session():
@@ -85,17 +86,34 @@ def logout():
     logout_user()
     flash('Signout Successfully', 'success')
     return redirect(url_for('users.login'))
+=======
 
-@users_blueprint.route('/', methods=["GET"])
-def index():
-    return "USERS"
+@users_blueprint.route('/login/session', methods=[ 'POST' ])
+def login_session():
+>>>>>>> 938f9c1f82bb87ebbb5293ad3a06733a8de7191a
+
+    data = request.form
+    user = User.get_or_none(username= data.get('username'))
+
+    if user:
+        hashed_password = user.password_hash # password hash stored in database for a specific user
+        result = check_password_hash(hashed_password, data.get('password')) # what is result? Test it in Flask shell and implement it in your view function!
+
+        if result:
+           # session["user_id"] = user.id
+            login_user(user)
+            flash("Login successfully", 'success')
+            return redirect(url_for('users.show',username = user.username))
+        else:
+            flash("Wrong password", 'error')
+            return redirect(url_for('users.login'))
+    else:
+        flash("User not found", 'error')
+        return redirect(url_for('users.login'))
 
 
-@users_blueprint.route('/<id>/edit', methods=['GET'])
-def edit(id):
-    pass
-
-
-@users_blueprint.route('/<id>', methods=['POST'])
-def update(id):
-    pass
+@users_blueprint.route('/logout', methods=['POST'])
+def logout():
+    logout_user()
+    flash('Signout Successfully', 'success')
+    return redirect(url_for('users.login'))

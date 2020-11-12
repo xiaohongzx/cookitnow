@@ -26,6 +26,7 @@ def create():
     duplicate_email = User.get_or_none(User.email == email)
 
     if create_new_user.save():
+        flash("Sign up successfully", 'success')
         return redirect(url_for("users.login"))
     else:
         if duplicate_username: 

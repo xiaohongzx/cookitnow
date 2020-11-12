@@ -20,6 +20,7 @@
  
     <div class="upload-form">
         <form method="POST" autocomplete="off" action="{{url_for('recipe.update_recipe', id = edit_recipe.id )}}" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <div class='input-group'>
                 <label for="recipetitle">Recipe Title</label>
                 <input type="text" name="recipetitle" class="input-field" value="{{edit_recipe.r_title}}">

@@ -26,7 +26,7 @@
 
     <div class="mealplan-form daily-mealplan">
         <form method="POST" autocomplete="off" action="{{url_for('recipe.search_meal_plan')}}" enctype="multipart/form-data">
-
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <div class='input-group'>
                 <label for="caloriesperday">Time Frame</label>
                 <input type="text" value="DAY" class="input-field" readonly>
@@ -63,6 +63,7 @@
 
     <div class="mealplan-form weekly-mealplan" style="display:none"> 
         <form method="POST" autocomplete="off" action="{{url_for('recipe.search_meal_plan_weekly')}}" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <div class='input-group'>
                 <label for="caloriesperday">Time Frame</label>
                 <input type="text" value="WEEK" class="input-field" readonly>

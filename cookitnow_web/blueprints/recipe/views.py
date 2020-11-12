@@ -2,6 +2,8 @@ from flask import Blueprint, render_template, flash, redirect, url_for, request,
 import requests
 from app import app
 from models.upload_recipe import UploadRecipe
+from models.user import User
+from models.favourite import Favourite
 import json
 import os
 from werkzeug import secure_filename
@@ -198,3 +200,6 @@ def search_meal_plan_weekly():
             "recipe/meal_plan_weekly_result.html", response="")
     else:
         return render_template("recipe/meal_plan.html")         
+
+
+

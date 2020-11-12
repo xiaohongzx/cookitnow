@@ -7,6 +7,7 @@
 
     <div class="search-recipe">
       <form method="POST" autocomplete="off" action="{{url_for('recipe.recipe')}}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <div class='input-group'>
             <input id="autocomplete" class='input-field' type='text' name='ingredient_name' placeholder='Search Ingredient : Apple, Onion, Butter, etc.....'/>
             <span class="input-group-btn">
@@ -23,6 +24,7 @@
     <h2>Check out some amazing cooking video here and learn from them! </h2>
     <div class="search-recipe">
       <form method="POST" autocomplete="off" action="{{url_for('recipe.cooking_video')}}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <div class='input-group'>
             <input id="autocomplete" class='input-field' type='text' name='ingredient_name_video' placeholder='Search Ingredient : Chicken, Pasta, Rice'/>
             <span class="input-group-btn">

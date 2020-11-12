@@ -12,7 +12,7 @@
         {% endif %}
 
         <div id="recipeTitle">
-            {{c_recipe.r_title}}
+            {{c_recipe.r_title}} <button id="downloadBtn" class='btn btn-link' onclick="getPdf()"><i class="fas fa-file-download"></i> Print Recipe</button>
         </div>
 
         <div class="recipe_food_images">

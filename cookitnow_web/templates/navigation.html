@@ -19,6 +19,7 @@
                 <div class="dashboard-dd">
                     <a href="{{url_for('users.show', username = current_user.username)}}">Dashboard</a>
                     <form action="{{url_for('users.logout')}}" method="post">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                         <input type='submit' value="Logout" class="logout">
                     </form> 
                 </div>
@@ -27,7 +28,11 @@
             <li><a href="{{url_for('users.login')}}">Login</a></li>
             <li><a href="{{url_for('users.new')}}" class="signup">SignUp</a></li>
             {% endif %}
-        </ul>
+        </ul> 
+    </div>
+
+    <div class="mobile-hamburger">
+        <i class="fas fa-bars"></i>
     </div>
 </div>
 
@@ -50,6 +55,7 @@
                 <div class="dashboard-dd">
                     <a href="{{url_for('users.show', username = current_user.username)}}">Dashboard</a>
                     <form action="{{url_for('users.logout')}}" method="post">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                         <input type='submit' value="Logout" class="logout">
                     </form> 
                 </div>
@@ -59,6 +65,10 @@
             <li><a href="{{url_for('users.new')}}" class="signup">SignUp</a></li>
             {% endif %}
         </ul>
+    </div>
+
+    <div class="mobile-hamburger">
+        <i class="fas fa-bars"></i>
     </div>
 </div>
 

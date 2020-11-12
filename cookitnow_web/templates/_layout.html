@@ -34,18 +34,33 @@
     {% endblock %}
     
 
-    <script>
-      $(".close-flashes").click(function (e) {
-          e.preventDefault();
-          $(".flashes").fadeOut();
-      });
-    </script>
 
 <script>
-$(".nav-list ul li a.dashboard").click(function (e) {
-    e.preventDefault();
-    $(".dashboard-dd").fadeToggle();
+
+$(document).ready(function () {
+  $(".nav-list ul li a.dashboard").click(function (e) {
+      e.preventDefault();
+      $(".dashboard-dd").fadeToggle();
+  });
+
+  $(".mobile-hamburger").click(function (e) {
+      e.preventDefault();
+      $(".nav-bar .nav-list").toggleClass("slide");
+  });
+
+  $(function() {
+    setTimeout(function() {
+      $(".flashes").fadeOut()
+    }, 3000);
+  });	
+
+  $(".close-flashes").click(function (e) {
+      e.preventDefault();
+      $(".flashes").fadeOut();
+  });
+
 });
+	
 
 
 $(document).mouseup(function(e) 

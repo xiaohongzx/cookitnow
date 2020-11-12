@@ -20,6 +20,7 @@
  
     <div class="login-signup-form">
         <form method="POST" autocomplete="off" action="{{url_for('users.create')}}" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <div class='input-group'>
                 <label for="username">Username:</label>
                 <input type="text" name="username" class="input-field">

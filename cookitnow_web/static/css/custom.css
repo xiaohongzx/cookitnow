@@ -235,9 +235,15 @@ footer a {
   width:100%;
 }
 
+.nav-bar .nav-list{
+  width:calc(100% - 200px);
+  padding-left:20px;
+  text-align:right;
+}
+
 .nav-bar .nav-list ul li{
   display:inline-block;
-  margin:0px 20px;
+  margin:0px 10px;
   position:relative;
 }
 
@@ -352,7 +358,7 @@ footer a {
 }
 
 .search-result{
-  padding:30px 20px;
+  padding:30px 20px 100px;
 }
 
 .search-result h1{
@@ -670,7 +676,7 @@ footer a {
 
 .upload-recipe .upload-form .input-group textarea{
   height:250px;
-  white-space:pre;
+  white-space:pre-wrap;
 }
 
 p.readonly.show{
@@ -1089,6 +1095,7 @@ box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.38);
   width:100%;
   align-items:center;
   justify-content: center;
+  flex-wrap:wrap;
 }
 
 .weekday-selection ul li{
@@ -1106,5 +1113,233 @@ box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.38);
 .weekday-selection ul li.active{
   background:#f47c48;
   color:#ffffff;
+}
+
+
+.mobile-hamburger{
+  color:#000000;
+  cursor:pointer;
+  display:none;
+}
+
+.nav-home .mobile-hamburger{
+  color:#ffffff;
+}
+
+
+.mobile-hamburger i{
+  font-size:30pt;
+}
+
+
+@media only screen and (max-width: 1150px){
+  .nav-bar .nav-list{
+    position:fixed;
+    right:-310px;
+    top:85px;
+    height:calc(100% - 85px);
+    background:#ffffff;
+    width:300px;
+    border-top:1px solid #d7d7d7;
+    -webkit-box-shadow: -2px 7px 5px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: -2px 7px 5px 0px rgba(0,0,0,0.35);
+    box-shadow: -2px 7px 5px 0px rgba(0,0,0,0.35);
+
+    transition: all ease 0.3s;
+  }
+
+  .nav-bar .nav-list.slide{
+    right:0px;
+    transition: all ease 0.3s;
+  }
+
+  .nav-bar{
+    -webkit-box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.35);
+    box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.35);
+  }
+
+  .nav-bar.nav-home .nav-list{
+    background:rgba(0,0,0,.8);
+    border-top:none;
+  }
+
+  .nav-bar .nav-list ul li,
+  .nav-bar.nav-home .nav-list ul li a{
+    display:block;
+    color:#ffffff;
+  }
+
+  .nav-bar .nav-list ul li{
+    margin:30px 0px;
+    padding:0px 20px;
+  }
+
+  .mobile-hamburger{
+    display:block;
+  }
+
+  .nav-bar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999;
+    height:85px;
+  }
+
+  .allpage-search{
+    margin-top:85px;
+  }
+
+  .nav-bar .nav-list ul li a.dashboard{
+    display:none;
+  }
+
+  .nav-bar .nav-list ul li .dashboard-dd{
+    position:relative;
+    display:block !important;
+    border:none;
+    background:none;
+    box-shadow:none;
+    top:initial;
+    right:initial;
+    width:100%;
+    
+  }
+
+  .nav-bar .nav-list ul li .dashboard-dd a{
+    text-align:right;
+    text-transform:uppercase;
+    padding:0;
+    margin-bottom:30px;
+  }
+
+  .nav-bar.nav-home .nav-list ul li .dashboard-dd a{
+    color:#ffffff !important;
+  }
+
+  .nav-bar .nav-list ul li .dashboard-dd a:hover{
+    background:none;
+    color:#000000;
+  }
+
+  .nav-bar .nav-list ul li .dashboard-dd input{
+    padding:10px 10px;
+    text-align:center;
+    background:#f47c48;
+    color:#ffffff;
+    border-radius:50px;
+    text-transform:uppercase;
+  }
+
+  .homepage{
+    padding:100px 20px;
+  }
+
+  .search-recipe{
+    width:95%;
+  }
+}
+
+
+@media only screen and (max-width: 900px){
+  .search-result-list ul li,
+  .similar_recipe .search-result-list ul li{
+    width:33.333%;
+  }
+
+  .search-result-mealplan{
+    flex-wrap:wrap;
+  }
+
+  .search-result-mealplan .nutrients,
+  .search-result-mealplan ul{
+    width:100%;
+  }
+
+  .search-result-mealplan .nutrients{
+    border-left:1px solid #d7d7d7;
+    border-top:none;
+  }
+
+  .search-result-mealplan .nutrients>div > div{
+    display:flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .search-result-mealplan .nutrients p{
+    padding:10px 10px;
+  }
+
+  .search-result-mealplan ul li .content a{
+    position:relative;
+    margin-top:20px;
+    bottom:initial;
+    right:initial;
+  }
+}
+
+@media only screen and (max-width: 768px){
+  .search-result-list ul li,
+  .similar_recipe .search-result-list ul li{
+    width:50%;
+  }
+
+  .search-result h1{
+    line-height:1.5;
+  }
+
+  .recipe_full_details_left, 
+  .recipe_full_details_right{
+    width:100%;
+    padding-left:0;
+  }
+}
+
+@media only screen and (max-width: 667px){
+ 
+
+  .search-result-mealplan ul li .image,
+  .search-result-mealplan ul li .content{
+    width:50%;
+  }
+
+
+}
+
+@media only screen and (max-width: 480px){
+
+  .search-result-mealplan ul li{
+    flex-wrap:wrap;
+  }
+
+  .search-result-mealplan .nutrients>div>div{
+    flex-wrap:wrap;
+  }
+
+  .search-result-mealplan .nutrients p{
+    width:100%;
+  }
+
+  .search-result-mealplan ul li .image,
+  .search-result-mealplan ul li .content{
+    width:100%;
+  }
+
+  .search-result-list ul li,
+  .similar_recipe .search-result-list ul li{
+    width:100%;
+  }
+
+  .recipe_full_details_right .recipe_equipment .recipe_equipment_list ul, 
+  .recipe_full_details_right .recipe_all_ingredients .recipe_ingredients_list ul{
+    justify-content: space-around;
+  }
+
+  .search-result-list ul li .recipe_title{
+    text-align:center;
+  }
 }
 /*hong css*/
